@@ -108,6 +108,25 @@
   .arangetram-desc { font-size: 1.05rem; line-height: 1.9; color: rgba(250,246,239,0.75); max-width: 650px; margin: 0 auto 3rem; font-weight: 300; }
   .arangetram-badge { display: inline-block; padding: 1rem 3rem; border: 1px solid var(--gold); color: var(--gold-light); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 300; }
 
+  /* GURU */
+  .guru { background: var(--cream); }
+  .guru-grid { display: grid; grid-template-columns: 340px 1fr; gap: 5rem; margin-top: 4rem; align-items: start; }
+  .guru-photo-wrap { position: sticky; top: 6rem; }
+  .guru-photo-frame { border: 12px solid var(--cream); box-shadow: 0 0 0 1px rgba(201,168,76,0.4), 8px 8px 0 rgba(201,168,76,0.15); }
+  .guru-photo-frame img { display: block; width: 100%; }
+  .guru-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 300; color: var(--dark); line-height: 1.2; margin-bottom: 0.3rem; }
+  .guru-title { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+  .guru-bio p { font-size: 0.95rem; line-height: 1.9; color: var(--text); font-weight: 300; margin-bottom: 1.1rem; }
+  .guru-awards { margin-top: 2rem; padding: 1.8rem; border: 1px solid rgba(201,168,76,0.3); background: white; }
+  .guru-awards-title { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .guru-awards ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .guru-awards li { font-size: 0.88rem; color: var(--text); font-weight: 300; padding-left: 1.2rem; position: relative; }
+  .guru-awards li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+  .guru-contact { margin-top: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .guru-contact a { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--crimson); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+  .guru-contact a:hover { border-bottom-color: var(--crimson); }
+  @media(max-width:900px){ .guru-grid { grid-template-columns: 1fr; } .guru-photo-wrap { position: static; } }
+
   /* GALLERY */
   .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
   .gallery-item { aspect-ratio: 3/4; background: #E8DDD0; overflow: hidden; }
@@ -168,6 +187,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#highlights">Achievements</a></li>
     <li><a href="#arangetram">Arangetram</a></li>
+    <li><a href="#guru">Guru</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -250,6 +270,45 @@
   </div>
 </section>
 
+<!-- GURU -->
+<section class="guru" id="guru">
+  <div class="section-label">Under the Guidance of</div>
+  <h2 class="section-title">The <em>Guru</em></h2>
+  <div class="divider"></div>
+  <div class="guru-grid">
+    <div class="guru-photo-wrap">
+      <div class="guru-photo-frame">
+        <img src="images/guru.jpg" alt="Guru Smt. Dr. Kripa Baskaran">
+      </div>
+    </div>
+    <div>
+      <div class="guru-name">Smt. Dr. Kripa Baskaran</div>
+      <div class="guru-title">Founder &amp; Director, Natyarpana Dance Company</div>
+      <div class="guru-bio">
+        <p>Dr. Kripa Baskaran began her Bharatanatyam pursuit at the age of seven and brings over two decades of teaching experience. She has culminated the Pandanallur, Tanjore, and Vazhuvoor styles in her repertoire and developed a thoughtfully structured curriculum seamlessly integrating these traditions into her practice and pedagogy — with utmost depth and clarity in training for Natyarpana.</p>
+        <p>A distinguished performer, she has presented her work on stages around the world and is a regular performer in the renowned Chennai Music and Dance Festival.</p>
+        <p>It is often said that a great teacher inspires hope, ignites imagination, and instills a love of learning. Smt. Dr. Kripa Baskaran embodies these ideals through her lifelong dedication to Bharatanatyam. She guides her students to become not only accomplished dancers but also principled individuals, emphasizing discipline, integrity, and purposeful creativity. Her teaching philosophy centers on three foundational pillars — <em>bonding, discipline, and presentation</em> — reflecting her belief that dance has the power to transform character and cultivate values.</p>
+        <p>A pioneer in arts education, Dr. Baskaran introduced the course "World Movement Traditions" at the University of Wisconsin–Milwaukee, expanding the academic appreciation of Indian classical dance. She holds a Doctoral degree in Bharatanatyam from Tamil University, Thanjavur, with research focused on advancing mental health through the medium of Bharatanatyam.</p>
+        <p>Her commitment extends beyond performance into meaningful community impact. Beginning as early as her high school years, she has worked with individuals with Down syndrome, autism, and cerebral palsy, using dance as a medium of expression, empowerment, and inclusion. Through Natyarpana outreach initiatives, students actively volunteer across the United States and India.</p>
+        <p>Her influence continues to grow through her students, many of whom now lead Natyarpana branches in North Carolina, Tennessee, Connecticut, and Illinois, fostering the next generation of dancers and leaders.</p>
+      </div>
+      <div class="guru-awards">
+        <div class="guru-awards-title">Honours &amp; Recognition</div>
+        <ul>
+          <li>"Nritya Seva Mani" Award (2015) — Outstanding contributions to Bharatanatyam in the United States</li>
+          <li>"Papanasam Sivan" Award (2016) — Excellence in Bharatanatyam</li>
+          <li>Wisconsin Arts Board Master Teacher (2014–2016, 2018–2023) — Mentoring apprentices through fellowship programs</li>
+          <li>Wisconsin Arts Board Panelist (2021)</li>
+        </ul>
+      </div>
+      <div class="guru-contact">
+        <a href="tel:12627444252">&#9742; 1-262-744-4252</a>
+        <a href="https://www.instagram.com/natyarpanadance" target="_blank">&#9654; @natyarpanadance on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="section-label">Visual Journey</div>
@@ -306,6 +365,8 @@
   <div class="footer-links">
     <a href="#about">About</a>
     <a href="#highlights">Achievements</a>
+    <a href="#arangetram">Arangetram</a>
+    <a href="#guru">Guru</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
