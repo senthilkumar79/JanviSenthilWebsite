@@ -140,6 +140,22 @@
   .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em; }
   .gallery-placeholder span { font-size: 2rem; opacity: 0.4; }
 
+  /* GUESTBOOK */
+  .guestbook { background: linear-gradient(135deg, #2D0A0A 0%, #1A0A00 50%, #2D1B00 100%); }
+  .guestbook .section-label { justify-content: center; color: var(--gold-light); }
+  .guestbook .section-label::before { display: none; }
+  .guestbook .section-title { color: var(--cream); text-align: center; }
+  .guestbook .divider { margin: 1.5rem auto 3rem; }
+  .guestbook-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.2rem; }
+  .guestbook-form .form-group label { color: rgba(250,246,239,0.6); }
+  .guestbook-form .form-group input,
+  .guestbook-form .form-group textarea { background: rgba(250,246,239,0.05); border-color: rgba(201,168,76,0.3); color: var(--cream); }
+  .guestbook-form .form-group input:focus,
+  .guestbook-form .form-group textarea:focus { border-color: var(--gold); }
+  .guestbook-form .form-group input::placeholder,
+  .guestbook-form .form-group textarea::placeholder { color: rgba(250,246,239,0.3); }
+  .guestbook-note { text-align: center; font-size: 0.78rem; color: rgba(250,246,239,0.4); margin-top: 0.5rem; letter-spacing: 0.05em; }
+
   /* CONTACT */
   .contact { background: var(--card-bg); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 4rem; align-items: start; }
@@ -246,11 +262,12 @@
   <a class="nav-logo" href="#">JS</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#highlights">Achievements</a></li>
     <li><a href="#arangetram">Arangetram</a></li>
     <li><a href="#guru">Guru</a></li>
     <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#guestbook">Guest Book</a></li>
+    <li><a href="#highlights">Achievements</a></li>
+    <li><a href="#contact">Contact Us</a></li>
   </ul>
 </nav>
 
@@ -294,21 +311,6 @@
       <div class="stat-card"><div class="stat-num">2+</div><div class="stat-label">Leadership Orgs<br>HOSA &amp; DECA</div></div>
       <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Fields of Focus<br>Medicine · Biz · Tech</div></div>
     </div>
-  </div>
-</section>
-
-<!-- HIGHLIGHTS -->
-<section class="highlights" id="highlights">
-  <div class="section-label">What Defines Me</div>
-  <h2 class="section-title" style="color:var(--cream)">Areas of <em>Excellence</em></h2>
-  <div class="divider"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-icon">🎓</div><div class="card-title">Academic Excellence</div><div class="card-text">Pursuing a rigorous STEM-focused curriculum at Hamilton High School with dedication to medicine, business, and technology. Active leader in HOSA — Future Health Professionals.</div></div>
-    <div class="card"><div class="card-icon">🥋</div><div class="card-title">Martial Arts</div><div class="card-text">Holder of a first-degree black belt in Taekwondo — a testament to years of discipline, perseverance, and physical mastery that informs every aspect of her character.</div></div>
-    <div class="card"><div class="card-icon">💃</div><div class="card-title">Bharatanatyam</div><div class="card-text">Years of dedicated classical Indian dance training under Guru Smt. Dr. Kripa Baskar at Natyarpana Dance Company, culminating in her Arangetram debut on June 20, 2026.</div></div>
-    <div class="card"><div class="card-icon">📊</div><div class="card-title">Business &amp; Leadership</div><div class="card-text">Active member of DECA, developing real-world skills in marketing, finance, and entrepreneurship at the intersection of business acumen and creative thinking.</div></div>
-    <div class="card"><div class="card-icon">🌍</div><div class="card-title">Community Service</div><div class="card-text">Committed to giving back through meaningful community service initiatives, reflecting a deep sense of responsibility beyond academic achievement.</div></div>
-    <div class="card"><div class="card-icon">🏅</div><div class="card-title">Cultural Heritage</div><div class="card-text">Thoughtfully bridging Indian classical tradition with modern American ambition — embodying the richness of dual cultural identity with grace and authenticity.</div></div>
   </div>
 </section>
 
@@ -388,10 +390,43 @@
   </div>
 </section>
 
+<!-- GUESTBOOK -->
+<section class="guestbook" id="guestbook">
+  <div class="section-label">Leave a Message</div>
+  <h2 class="section-title">Guest <em>Book</em></h2>
+  <div class="divider"></div>
+  <form class="guestbook-form" id="guestbookForm" name="guestbook" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="guestbook">
+    <div class="form-group" style="display:none;"><label>Don't fill this out</label><input name="bot-field"></div>
+    <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Your full name" required></div>
+    <div class="form-group"><label>Your Message</label><textarea rows="4" name="message" placeholder="Share your wishes or a note for Janvi..." required></textarea></div>
+    <button type="submit" class="btn-primary" style="align-self:center; margin-top:0.5rem;" id="guestbookSubmitBtn">Sign the Guest Book</button>
+  </form>
+  <div id="guestbookSuccess" style="display:none; max-width:600px; margin:0 auto; padding:1.5rem; border:1px solid var(--gold); color:var(--gold-light); font-size:0.95rem; line-height:1.7; text-align:center;">
+    Thank you for signing the guest book! Your message means a lot to Janvi.
+  </div>
+  <p class="guestbook-note">Your message will be cherished. All entries are reviewed before display.</p>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights" id="highlights">
+  <div class="section-label">What Defines Me</div>
+  <h2 class="section-title" style="color:var(--cream)">Areas of <em>Excellence</em></h2>
+  <div class="divider"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-icon">🎓</div><div class="card-title">Academic Excellence</div><div class="card-text">Pursuing a rigorous STEM-focused curriculum at Hamilton High School with dedication to medicine, business, and technology. Active leader in HOSA — Future Health Professionals.</div></div>
+    <div class="card"><div class="card-icon">🥋</div><div class="card-title">Martial Arts</div><div class="card-text">Holder of a first-degree black belt in Taekwondo — a testament to years of discipline, perseverance, and physical mastery that informs every aspect of her character.</div></div>
+    <div class="card"><div class="card-icon">💃</div><div class="card-title">Bharatanatyam</div><div class="card-text">Years of dedicated classical Indian dance training under Guru Smt. Dr. Kripa Baskar at Natyarpana Dance Company, culminating in her Arangetram debut on June 20, 2026.</div></div>
+    <div class="card"><div class="card-icon">📊</div><div class="card-title">Business &amp; Leadership</div><div class="card-text">Active member of DECA, developing real-world skills in marketing, finance, and entrepreneurship at the intersection of business acumen and creative thinking.</div></div>
+    <div class="card"><div class="card-icon">🌍</div><div class="card-title">Community Service</div><div class="card-text">Committed to giving back through meaningful community service initiatives, reflecting a deep sense of responsibility beyond academic achievement.</div></div>
+    <div class="card"><div class="card-icon">🏅</div><div class="card-title">Cultural Heritage</div><div class="card-text">Thoughtfully bridging Indian classical tradition with modern American ambition — embodying the richness of dual cultural identity with grace and authenticity.</div></div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-label">Connect</div>
-  <h2 class="section-title">Get In <em>Touch</em></h2>
+  <h2 class="section-title">Contact <em>Us</em></h2>
   <div class="divider"></div>
   <div class="contact-grid">
     <div class="contact-info">
@@ -426,10 +461,12 @@
   <div class="footer-copy">&copy; 2025 Janvi Senthil. All rights reserved.</div>
   <div class="footer-links">
     <a href="#about">About</a>
-    <a href="#highlights">Achievements</a>
     <a href="#arangetram">Arangetram</a>
     <a href="#guru">Guru</a>
-    <a href="#contact">Contact</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#guestbook">Guest Book</a>
+    <a href="#highlights">Achievements</a>
+    <a href="#contact">Contact Us</a>
   </div>
 </footer>
 
@@ -453,6 +490,26 @@
     img.addEventListener('contextmenu', e => e.preventDefault());
     img.addEventListener('dragstart', e => e.preventDefault());
   });
+
+  // Guestbook form submission
+  const guestbookForm = document.getElementById('guestbookForm');
+  if (guestbookForm) {
+    guestbookForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('guestbookSubmitBtn');
+      btn.textContent = 'Signing…';
+      btn.disabled = true;
+      fetch('/', { method: 'POST', body: new FormData(guestbookForm) })
+        .then(() => {
+          guestbookForm.style.display = 'none';
+          document.getElementById('guestbookSuccess').style.display = 'block';
+        })
+        .catch(() => {
+          btn.textContent = 'Sign the Guest Book';
+          btn.disabled = false;
+        });
+    });
+  }
 
   // Netlify form AJAX submission
   const contactForm = document.getElementById('contactForm');
