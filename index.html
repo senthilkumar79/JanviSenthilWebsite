@@ -503,7 +503,7 @@
       const btn = document.getElementById('guestbookSubmitBtn');
       btn.textContent = 'Signing…';
       btn.disabled = true;
-      fetch('/', { method: 'POST', body: new FormData(guestbookForm) })
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(guestbookForm)).toString() })
         .then(() => {
           guestbookForm.style.display = 'none';
           document.getElementById('guestbookSuccess').style.display = 'block';
@@ -523,7 +523,7 @@
       const btn = document.getElementById('formSubmitBtn');
       btn.textContent = 'Sending…';
       btn.disabled = true;
-      fetch('/', { method: 'POST', body: new FormData(contactForm) })
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(contactForm)).toString() })
         .then(() => {
           contactForm.style.display = 'none';
           document.getElementById('formSuccess').style.display = 'block';
