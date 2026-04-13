@@ -134,9 +134,10 @@
   @media(max-width:900px){ .guru-grid { grid-template-columns: 1fr; } .guru-photo-wrap { position: static; } }
 
   /* GALLERY */
-  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
-  .gallery-item { aspect-ratio: 3/4; background: #E8DDD0; overflow: hidden; }
-  .gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; align-items: start; }
+  .gallery-item { background: #E8DDD0; overflow: hidden; }
+  .gallery-item:first-child { grid-column: span 2; }
+  .gallery-item img { width: 100%; height: auto; display: block; object-fit: unset; }
   .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em; }
   .gallery-placeholder span { font-size: 2rem; opacity: 0.4; }
 
@@ -232,8 +233,7 @@
 
     /* GALLERY */
     .gallery-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1.5rem; }
-    .gallery-item { aspect-ratio: 1/1; }
-    .gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+    .gallery-item:first-child { grid-column: span 2; }
 
     /* CONTACT */
     .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2rem; }
@@ -250,7 +250,7 @@
     .hero-img-frame img { width: 200px; }
     .about-stats { grid-template-columns: 1fr 1fr; }
     .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item:first-child { grid-column: span 1; aspect-ratio: 3/4; }
+    .gallery-item:first-child { grid-column: span 1; }
     .btn-primary, .btn-outline { padding: 0.75rem 1.4rem; font-size: 0.7rem; }
   }
 </style>
@@ -398,14 +398,14 @@
   <h2 class="section-title">Gallery &amp; <em>Moments</em></h2>
   <div class="divider"></div>
   <div class="gallery-grid">
-    <div class="gallery-item" style="grid-column:span 2;aspect-ratio:16/9;"><img src="images/gallery1.jpg" alt="Bharatanatyam group performance" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div class="gallery-item"><img src="images/gallery2.jpg" alt="Janvi Senthil Arangetram portrait" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
-    <div class="gallery-item"><img src="images/gallery3.jpg" alt="Janvi in Bharatanatyam costume" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
-    <div class="gallery-item"><img src="images/gallery4.jpg" alt="Janvi performing Bharatanatyam" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
-    <div class="gallery-item"><img src="images/gallery5.jpg" alt="Janvi dance pose" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
-    <div class="gallery-item"><img src="images/gallery6.jpg" alt="Janvi with guru" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
-    <div class="gallery-item"><img src="images/gallery7.jpg" alt="Duet performance" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
-    <div class="gallery-item"><img src="images/gallery8.jpg" alt="Janvi Senthil dancing" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+    <div class="gallery-item" style="grid-column:span 2;"><img src="images/gallery1.jpg" alt="Bharatanatyam group performance"></div>
+    <div class="gallery-item"><img src="images/gallery2.jpg" alt="Janvi Senthil Arangetram portrait"></div>
+    <div class="gallery-item"><img src="images/gallery3.jpg" alt="Janvi in Bharatanatyam costume"></div>
+    <div class="gallery-item"><img src="images/gallery4.jpg" alt="Janvi performing Bharatanatyam"></div>
+    <div class="gallery-item"><img src="images/gallery5.jpg" alt="Janvi dance pose"></div>
+    <div class="gallery-item"><img src="images/gallery6.jpg" alt="Janvi with guru"></div>
+    <div class="gallery-item"><img src="images/gallery7.jpg" alt="Duet performance"></div>
+    <div class="gallery-item"><img src="images/gallery8.jpg" alt="Janvi Senthil dancing"></div>
   </div>
 </section>
 
