@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Janvi Senthil | Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
   :root {
     --crimson: #8B1A1A;
@@ -414,8 +415,7 @@
   <div class="section-label">Leave a Message</div>
   <h2 class="section-title">Guest <em>Book</em></h2>
   <div class="divider"></div>
-  <form class="guestbook-form" id="guestbookForm" name="guestbook" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="guestbook">
+  <form class="guestbook-form" id="guestbookForm">
     <div class="form-group" style="display:none;"><label>Don't fill this out</label><input name="bot-field"></div>
     <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Your full name" required></div>
     <div class="form-group"><label>Your Message</label><textarea rows="4" name="message" placeholder="Share your wishes or a note for Janvi..." required></textarea></div>
@@ -442,8 +442,7 @@
         <a href="mailto:your@email.com" class="social-link"><span class="social-icon">&#9993;</span><span>Email &mdash; your@email.com</span></a>
       </div>
     </div>
-    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact">
+    <form class="contact-form" id="contactForm">
       <div class="form-group" style="display:none;"><label>Don't fill this out</label><input name="bot-field"></div>
       <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Full name" required></div>
       <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
@@ -495,6 +494,8 @@
     img.addEventListener('dragstart', e => e.preventDefault());
   });
 
+  emailjs.init('LwXSh1rt0dQ8YzbXS');
+
   // Guestbook form submission
   const guestbookForm = document.getElementById('guestbookForm');
   if (guestbookForm) {
@@ -503,7 +504,12 @@
       const btn = document.getElementById('guestbookSubmitBtn');
       btn.textContent = 'Signing…';
       btn.disabled = true;
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(guestbookForm)).toString() })
+      const data = {
+        name: guestbookForm.querySelector('[name="name"]').value,
+        message: guestbookForm.querySelector('[name="message"]').value,
+        form_type: 'Guestbook'
+      };
+      emailjs.send('service_izzqfws', 'template_zrvuim4', data)
         .then(() => {
           guestbookForm.style.display = 'none';
           document.getElementById('guestbookSuccess').style.display = 'block';
@@ -515,7 +521,7 @@
     });
   }
 
-  // Netlify form AJAX submission
+  // Contact form submission
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -523,7 +529,13 @@
       const btn = document.getElementById('formSubmitBtn');
       btn.textContent = 'Sending…';
       btn.disabled = true;
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(contactForm)).toString() })
+      const data = {
+        name: contactForm.querySelector('[name="name"]').value,
+        email: contactForm.querySelector('[name="email"]').value,
+        message: contactForm.querySelector('[name="message"]').value,
+        form_type: 'Contact'
+      };
+      emailjs.send('service_izzqfws', 'template_zrvuim4', data)
         .then(() => {
           contactForm.style.display = 'none';
           document.getElementById('formSuccess').style.display = 'block';
